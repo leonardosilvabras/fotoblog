@@ -53,6 +53,11 @@ nav ul {
     font-weight: 700;
 }
 
+header {
+    --startY: -100%;
+    animation: move .2s;
+}
+
 header form {
     flex: 1;
 }
@@ -123,6 +128,7 @@ main h1 {
     aspect-ratio: 16/9;
     object-fit: cover;
     transition: all .5s ease-in-out;
+    display: block;
 }
 
 .item img:hover {
@@ -155,8 +161,35 @@ main h1 {
     text-transform: uppercase;
 }
 
+footer {
+    --startY: 100%;
+    animation: move .2s;
+}
+
 footer p {
     text-align: center;
     padding: 1.6rem;
     font-weight: 600;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(var(--startY));
+    }
+}
+
+.item {
+    --delay: .4s;
+    animation: appear .4s var(--delay) backwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
 }
